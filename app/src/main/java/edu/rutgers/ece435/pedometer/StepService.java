@@ -54,7 +54,7 @@ public class StepService extends Service {
         this.mSensorManager.registerListener(this.mStepDetector, this.mSensor, SensorManager.SENSOR_DELAY_UI);
         this.mStepCount = new StepCount();
         this.mStepCount.initListener(this.mValuePassListener);
-        this.mStepDetector.initListener(this.mStepCount);
+        this.mStepDetector.initializeListener(this.mStepCount);
         this.mSharePreference = getSharedPreferences("relevant_data", Activity.MODE_PRIVATE);
         this.mEdit = this.mSharePreference.edit();
 
