@@ -12,6 +12,7 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.PowerManager;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
@@ -44,6 +45,7 @@ public class StepService extends Service {
         return this.mBinder;
     }
 
+    
     public void onCreate() {
         super.onCreate();
         this.wakeLock = ((PowerManager)getSystemService(Context.POWER_SERVICE)).newWakeLock(1, "StepService");
@@ -91,7 +93,7 @@ public class StepService extends Service {
         this.mCallback = paramICallback;
     }
 
-    //重置StepCount
+    //reset StepCount
     public void resetValues() {
         mEdit.putString("steps","0");
         mEdit.commit();
@@ -102,7 +104,7 @@ public class StepService extends Service {
         return super.onUnbind(paramIntent);
     }
 
-    public class StepBinder extends Binder {
+    class StepBinder extends Binder {
         StepService getService() {
             return StepService.this;
         }

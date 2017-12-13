@@ -13,12 +13,12 @@ import android.hardware.SensorEventListener;
 import edu.rutgers.ece435.pedometer.Interface.*;
 
 /*
-* 算法的主要部分,检测是否是步点
+* main part of the step detector to detect it is a step-point or not
 * */
 
 public class StepDetector implements SensorEventListener {
 
-    //存放三轴数据
+    //store the data from three axises
     float[] originalValue = new float[3]; // float[] originalValue
     final int currentValCount = 4;  // final int currentValCount;
     //用于存放计算阈值的波峰波谷差值
