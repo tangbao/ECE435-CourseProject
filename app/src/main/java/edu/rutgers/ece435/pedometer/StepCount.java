@@ -3,7 +3,6 @@ package edu.rutgers.ece435.pedometer;
 /**
  * Created by tzzma on 2017/12/12.
  *
- *
  */
 
 import edu.rutgers.ece435.pedometer.Interface.*;

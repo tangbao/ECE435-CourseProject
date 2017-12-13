@@ -6,17 +6,17 @@ package edu.rutgers.ece435.pedometer;
  *
  */
 
-public class Interface {
+class Interface {
 
     public interface StepCountListener {
-        public void countStep();
+        void countStep();
     }
 
     public interface StepValuePassListener {
-        public void stepChanged(int steps);
+        void stepChanged(int steps);
     }
 
     public interface UpdateUiCallBack {
-        public void updateUi();
+        void updateUi();
     }
 }
