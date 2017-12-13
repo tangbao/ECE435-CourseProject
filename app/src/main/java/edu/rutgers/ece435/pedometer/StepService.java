@@ -67,7 +67,7 @@ public class StepService extends Service {
     public int onStartCommand(Intent paramIntent, int paramInt1, int paramInt2) {
         Toast.makeText(this, "start", Toast.LENGTH_SHORT).show();
         /*
-        * 灰色保活,使服务成为无通知栏显示的前台服务
+        * let the service be a foreground service without the notification
         * */
         if(Build.VERSION.SDK_INT<18){
             startForeground(0,new Notification());

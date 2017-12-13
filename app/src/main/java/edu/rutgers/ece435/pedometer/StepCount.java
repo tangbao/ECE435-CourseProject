@@ -7,9 +7,8 @@ package edu.rutgers.ece435.pedometer;
 
 import edu.rutgers.ece435.pedometer.Interface.*;
 
-/*
-* 根据StepDetector传入的步点"数"步子
-* */
+
+
 public class StepCount implements StepCountListener {
 
     private int count = 0;
@@ -18,10 +17,12 @@ public class StepCount implements StepCountListener {
     private long timeOfLastPeak = 0;
     private long timeOfThisPeak = 0;
 
-    /*
-    * 连续走十步才会开始计步
-    * 连续走了9步以下,停留超过3秒,则计数清空
-    * */
+    // notify the UI thread to update the UI
+    // before update the UI, we need to detect :
+    // 1. whether there are 10 steps already
+    // 2. if a user walkes 9 steps continuously and stops longer than 3 sec, the count will be set to 0.
+    // 3. Only after detecting the users have already had 9 steps, the data starts to pass to the step counter.
+
     @Override
     public void countStep() {
         this.timeOfLastPeak = this.timeOfThisPeak;
@@ -37,8 +38,8 @@ public class StepCount implements StepCountListener {
                 this.mCount++;
                 notifyListener();
             }
-        } else {//超时
-            this.count = 1;//为1,不是0
+        } else {
+            this.count = 1;
         }
 
     }
